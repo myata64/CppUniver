@@ -65,6 +65,12 @@ float (*No3)[5] = &No1; // ob'yavlyaet ukazatel *No3 na massiv tipa float razmer
     // 2.10. Povtoryaem dlya imeni massiva kak ukazatel
     unsigned int (*No6)[3][4] = (unsigned int (*)[3][4])No5;
     std::cout << "Element trehmernogo massiva No5 cherez ukazatel No6: " << No6[1][2][3] << std::endl;
+    
+    // 2.11. Prisvaevaem ukazatelyu No7 adres trehmernogo massiva No5
+
+    unsigned int (*No7)[2][3][4] = &No5;
+
+    std::cout << "Element trehmernogo massiva No5 cherez ukazatel No7: " << (*No7)[1][2][3] << std::endl;
 
     return 0;
 }
