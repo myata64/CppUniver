@@ -27,32 +27,29 @@ setlocale(LC_ALL, "Russian");
 
     // 2.4. Присвоить указателю No2 адрес массива No1, вывести на экран адреса массива и указателя и содержимое указателя.
     float* No2 = No1;
-    std::cout << "Адрес массива No1: " << No1 << std::endl;
-    std::cout << "Адрес указателя No2: " << No2 << std::endl;
     std::cout << "Содержимое указателя No2: " << *No2 << std::endl;
+    std::cout << "Адрес массива No1: " << No1 << std::endl;
+    std::cout << "Адрес указателя No2: " << &No2 << std::endl;
 
     // 2.5. Повторить пункт 3 для указателя, содержащего адрес массива.
-    float (*No3)[5] = &No1; // Объявляет указатель No3 на массив типа float, размерности 5 и инициализирует его массивом адреса No1
-    std::cout << "Адрес указателя No3: " << No3 << std::endl;
-    std::cout << "Содержимое указателя No3: " << (*No3)[0] << std::endl;
-
+    std::cout << "Адрес массива: " << No2 << std::endl;
     // 2.6. Повторить пункты 1-3 для статического массива No3.
         // 2.6 -> 2.1
-    char No3_static[5]; //Sozdaem static massiv simvolov s 10 elementami
+    char No3[5]; //Sozdaem static massiv simvolov s 10 elementami
     std::cout << "2.6 -> 2.1 Содержимое до ввода значений:" << std::endl;
     for (int i =0; i<5; i++) {
-        std::cout << No3_static[i] << " ";
+        std::cout << No3[i] << " ";
     } 
     std::cout << std::endl;
         // 2.6 -> 2.2
     std::cout << "2.6 -> 2.2 Введите 5 символов для No3_static:" << std::endl; 
     for (int i = 0; i < 5; i++) {
-    std::cin >> No3_static[i];
+    std::cin >> No3[i];
     }   
         // 2.6 -> 2.3
     std::cout << "2.6 -> 2.3 Элементы массива после ввода:" << std::endl;
     for (int i=0; i<5; i++) {
-        std::cout << No3_static[i] << " ";
+        std::cout << No3[i] << " ";
         } 
         std::cout << std::endl;
     
