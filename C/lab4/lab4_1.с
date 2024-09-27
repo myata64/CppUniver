@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main(){
+    setlocale(LC_ALL, "Rus");
+
+    double *px = (double *)malloc(sizeof(double));
+    double *py = (double *)malloc(sizeof(double));
+
+    if (px == NULL || py == NULL) {
+        printf("Ошибка выделения памяти.\n");
+        return 1;
+    }
+
+    printf("Введите значение x->");
+    scanf("%lf", px);
+    
+    int id = 0;
+    int *p_id = &id;
+
+    if (*px <= -1) {
+        *py = atan(*px / (1 - *px));
+    } else if (*px <= 10 && *px != 0) {
+        *py = (M_PI + sqrt((*px * *px + 1) / *px));
+    } else if (*px > 10) {
+        *py = (-M_PI + *px / ((1 - *px) * (1 - *px)));
+    } else {
+        id = 1;
+    }
+    
+    if (*p_id == 0) {
+        printf("При x = %lf функция y = %lf", *px, *py);
+    } else {
+        printf("Ошибка: При x=%lf деление на 0\n", *px); 
+    }
+
+    free(px);
+    free(py);
+    return 0;
+}
+
